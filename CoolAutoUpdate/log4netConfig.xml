@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <configSections>
+    <section name="log4net" type="System.Configuration.IgnoreSectionHandler"/>
+  </configSections>
+  <appSettings>
+  </appSettings>
+  <log4net>
+
+    <root>
+      <!--输出日志级别-->
+      <level value="INFO" /> 
+      <!--文件形式记录日志 -->
+      <appender-ref ref="BufferingForwardingAppender" />
+      <!--控制台控制显示日志-->
+      <appender-ref ref="ConsoleAppender" />
+    </root>
+
+
+    <!--定义日志的输出媒介，下面定义日志以四种方式输出。也可以下面的按照一种类型或其他类型输出。-->
+    <!--定义输出到文件中-->
+    <appender name="RollingFileAppender" type="log4net.Appender.RollingFileAppender">
+      <!--定义文件存放位置-->
+      <param name="File" value="D:\UIH_log\UIHClientProxyService\" />
+      <appendToFile value="true" />
+      <rollingStyle value="Composite" />
+      <datePattern value="u_yyyy-MM-dd'.txt'" />
+      <staticLogFileName value="false"/>
+      <maxSizeRollBackups value="20" />
+      <maximumFileSize value="10MB" />
+      <param name="lockingModel"  type="log4net.Appender.FileAppender+MinimalLock" /><!--这个节点用来支持多个进程使用同一个日志文件20161116-->
+      <layout type="log4net.Layout.PatternLayout">
+        <!--<footer value="This log is written by UIH using log4net."/>-->
+        <!--输出格式-->
+        <!--样例：2015-01-01 09:00:00,111 [10] INFO - info-->
+        <!--<conversionPattern value="%date >> %-5level %message%newline" />-->
+        <param name="ConversionPattern" value="%d %-5p %c [%M] >> %m%n" /><!--将上面的样式注释，修改为当前样式，可以保留出 类名[函数名]20161115-->
+      </layout>
+    </appender>
+
+
+    <!--输出到指定类型的Appender的日志信息进行缓存-->
+    <appender name="BufferingForwardingAppender" type="log4net.Appender.BufferingForwardingAppender" >
+      <bufferSize value="10"/>
+      <!--超长部分是否丢弃-->
+      <lossy value="true" />
+      <evaluator type="log4net.Core.LevelEvaluator">
+        <threshold value="INFO"/>
+      </evaluator>
+      <appender-ref ref="RollingFileAppender" />
+    </appender>
+
+    <!--定义输出到控制台命令行中-->
+    <appender name="ConsoleAppender" type="log4net.Appender.ColoredConsoleAppender">
+      <layout type="log4net.Layout.PatternLayout">
+        <conversionPattern value="%n%date >> %-5level %message%newline" />
+      </layout>
+      <mapping>
+        <level value="FATAL" />
+        <foreColor value="Red" />
+        <backColor value="White" />
+      </mapping>
+      <mapping>
+        <level value="ERROR" />
+        <foreColor value="Red, HighIntensity" />
+      </mapping>
+      <mapping>
+        <level value="WARN" />
+        <foreColor value="Yellow" />
+      </mapping>
+      <mapping>
+        <level value="INFO" />
+        <foreColor value="Cyan" />
+      </mapping>
+      <mapping>
+        <level value="DEBUG" />
+        <foreColor value="Green" />
+      </mapping>
+      <!--定义输出级别 threshold == levelMin, value="DEBUG,INFO,WARN,ERROR,FATAL" or ALL/>-->
+      <threshold value="ALL"/>
+      <filter type="log4net.Filter.LevelRangeFilter">
+        <levelMin value="ALL" />
+        <levelMax value="FATAL" />
+      </filter>
+    </appender>
+  </log4net>
+</configuration>

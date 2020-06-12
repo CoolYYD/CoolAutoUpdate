@@ -1,0 +1,10 @@
+D:\MyProject\CoolAutoUpdate\CoolAutoUpdate\bin\Debug\CoolAutoUpdate.exe.config
+D:\MyProject\CoolAutoUpdate\CoolAutoUpdate\obj\Debug\UIH.Update.Form1.resources
+D:\MyProject\CoolAutoUpdate\CoolAutoUpdate\obj\Debug\CoolAutoUpdate.Properties.Resources.resources
+D:\MyProject\CoolAutoUpdate\CoolAutoUpdate\obj\Debug\CoolAutoUpdate.csproj.GenerateResource.Cache
+D:\MyProject\CoolAutoUpdate\CoolAutoUpdate\bin\Debug\CoolAutoUpdate.exe
+D:\MyProject\CoolAutoUpdate\CoolAutoUpdate\bin\Debug\CoolAutoUpdate.pdb
+D:\MyProject\CoolAutoUpdate\CoolAutoUpdate\bin\Debug\log4net.dll
+D:\MyProject\CoolAutoUpdate\CoolAutoUpdate\bin\Debug\Newtonsoft.Json.dll
+D:\MyProject\CoolAutoUpdate\CoolAutoUpdate\obj\Debug\CoolAutoUpdate.exe
+D:\MyProject\CoolAutoUpdate\CoolAutoUpdate\obj\Debug\CoolAutoUpdate.pdb
