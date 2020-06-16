@@ -1,6 +1,5 @@
 # CoolAutoUpdate
 ## 基于c#开发的自动更新框架
-***
 ### **UpdateConfig.json配置文件说明**
 #### Version：更新程序版本号
 #### Url：升级包请求站点全路径（包必须为.zip格式）
