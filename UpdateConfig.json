@@ -1,0 +1,8 @@
+{
+    "Version":"1.4.1",
+    "Url":"http://10.3.12.144:8865/UpdatePackage.zip",
+    "Mandatory":"false",
+	"MD5":"2DDAF0AF30C577A8C65CAEAD3AD1BEBA",
+	"Message":"检测到新版本是否立即更新？",
+	"TimSpan":"10"
+}
